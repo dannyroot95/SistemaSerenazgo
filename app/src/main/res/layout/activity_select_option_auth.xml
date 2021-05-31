@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.SelectOptionAuthActivity">
+
+    <include layout="@layout/action_bar_toollbar" />
+
+    <TextView
+        android:id="@+id/txt_type"
+        android:layout_width="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:gravity="right"
+        android:layout_marginRight="10dp"
+        android:text="Usuario"
+        android:textColor="#fff"
+        android:layout_gravity="top"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:indeterminate="false"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:indeterminateTint="@android:color/white"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/linearLogo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sistema Serenazgo"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:layout_margin="40dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnGoToLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/rounded_button"
+            android:text="INICIAR SESIÓN"
+            android:backgroundTint="@drawable/btn_back_green"
+            android:textColor="@color/colorWhite"
+            android:layout_marginRight="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="No tienes una cuenta?"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/btnGoToRegister"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textAlignment="center"
+                android:text="Regístrate"
+                android:textStyle="bold"
+                android:textColor="#F1C40F"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_lost"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:elevation="6dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:textColor="#F1C40F"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginRight="30dp"
+        android:text="Olvidaste tu contraseña?" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

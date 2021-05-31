@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinator"
+    tools:context="com.optic.sistemaSerenazgo.activities.serene.RegisterIncident">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.github.florent37.shapeofview.shapes.ArcView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:elevation="4dp"
+        app:shape_arc_cropDirection="outside"
+        app:shape_arc_height="20dp"
+        app:shape_arc_position="bottom"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="FICHA DE INTERVENCIÓN"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:id="@+id/txtNumFicha"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </com.github.florent37.shapeofview.shapes.ArcView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scroll">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:src="@drawable/ic_policy"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="Sereno:"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=""
+                android:gravity="right"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:id="@+id/txtSereno"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:src="@drawable/hora"
+                android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Hora :"
+            android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=""
+                android:gravity="right"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:textStyle="bold"
+                android:id="@+id/txtHour"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:src="@drawable/calendario"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:text="Fecha :"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=""
+                android:gravity="right"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:id="@+id/txtDate"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lugar de Ocurrencia"
+                app:boxStrokeColor="#19733F"
+                android:layout_marginRight="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginLeft="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textOcurrencia"
+                    android:layout_width="match_parent"
+                    android:drawableStart="@drawable/ic_place"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:inputType="textCapSentences">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="10dp"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="Modalidad : "
+                    android:layout_height="wrap_content"/>
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:text=""
+                    android:background="#DCDCDC"
+                    android:layout_weight="1"
+                    android:id="@+id/spinnerMod"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:visibility="gone"
+                android:text="Ubicación : "
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Latitud"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="80dp"
+                        android:text="-12.00000"
+                        android:id="@+id/txtLat"
+                        android:textSize="14sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"/>
+
+                  <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Longitud"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="80dp"
+                        android:text="-69.00000"
+                        android:textSize="14sp"
+                        android:id="@+id/txtLon"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Nombre del afectado"
+                app:boxStrokeColor="#19733F"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_afectado"
+                    android:id="@+id/edt_afectado"
+                    android:inputType="text">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Placa de vehículo"
+                app:boxStrokeColor="#19733F"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_action_name"
+                    android:id="@+id/edt_placa"
+                    android:inputType="text">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Reseña / Resumen"
+                app:boxStrokeColor="#19733F"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_resumen"
+                    android:id="@+id/edt_reseña"
+                    android:inputType="text">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:includeFontPadding="false"
+                android:textColor="#000"
+                app:cornerRadius="20sp"
+                app:strokeColor="#239B56"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="20dp"
+                android:id="@+id/btnRegisterMapIncident"
+                android:text="Registrar Incidente"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/btnMapear"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_place"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:textColor="#038139"
+                android:text="Cambiar Ubicacion del incidente"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/map_container">
+
+        <com.google.android.gms.maps.MapView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/map_view" />
+    </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="6dp"
+            app:fabSize="normal"
+            android:src="@drawable/ic_baseline_location_off_24"
+            app:backgroundTint="#f00"
+            app:elevation="6dp"
+            android:id="@+id/btnCloseMap"
+            android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

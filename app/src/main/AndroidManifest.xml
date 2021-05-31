@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.optic.sistemaSerenazgo">
+    <!-- DECLARAMOS TODOS LOS PERMISOS PARA ACCEDER A INTERNET , GPS , ALMACENAMIENTO -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.DetailIndicent"></activity>
+        <activity
+            android:name=".activities.ForgotPassword"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.patrol.IncidentListPatrol"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.IncidentList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.RegisterIncidentPatrol"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.RegisterIncident"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.HistoryBookingDetailPatrolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.HistoryBookingDetailSereneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.UpdateProfilePatrolActivity"
+            android:parentActivityName=".activities.patrol.MapPatrolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.UpdateProfileActivity"
+            android:parentActivityName=".activities.serene.MapSereneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.NotificationBookingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.SuccessfullyPatrolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.SuccessfullySereneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.MapPatrolBookingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.MapSereneBookingActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver
+            android:name=".receivers.AcceptReceiver"
+            android:enabled="true" />
+        <receiver
+            android:name=".receivers.CancelReceiver"
+            android:enabled="true" />
+
+        <service android:name=".services.MyFirebaseMessagingClient">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".activities.serene.RequestPatrolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.DetailRequestActivity"
+            android:parentActivityName=".activities.serene.MapSereneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.MapPatrolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.MapSereneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.patrol.RegisterPatrolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:parentActivityName=".activities.SelectOptionAuthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.serene.RegisterActivity"
+            android:parentActivityName=".activities.SelectOptionAuthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SelectOptionAuthActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/splashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- DECLARAMOS LA METADATA PARA EL USO DE LA API DE GOOGLE MAPS -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+    </application>
+
+</manifest>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.serene.MapSereneActivity">
+
+    <include layout="@layout/action_bar_toollbar" ></include>
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        />
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:shape_roundRect_bottomLeftRadius="10dp"
+        app:shape_roundRect_bottomRightRadius="10dp"
+        app:shape_roundRect_topLeftRadius="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        app:shape_roundRect_topRightRadius="10dp"
+        android:layout_gravity="bottom">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnRequestDriver"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textCursorDrawable="@drawable/ic_action_name"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@drawable/btn_back_green"
+        android:text="SOLICITAR PATRULLA"
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/btnRegisterIncident"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textCursorDrawable="@drawable/ic_resumen"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@drawable/btn_back_black"
+        android:text="REGISTRAR INCIDENTE"
+        android:textColor="#fff"/>
+
+</LinearLayout>
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

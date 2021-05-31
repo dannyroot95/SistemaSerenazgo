@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinator"
+    tools:context="com.optic.sistemaSerenazgo.activities.patrol.RegisterIncidentPatrol">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.github.florent37.shapeofview.shapes.ArcView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:elevation="4dp"
+            app:shape_arc_cropDirection="outside"
+            app:shape_arc_height="20dp"
+            app:shape_arc_position="bottom"
+            >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="FICHA DE INTERVENCIÓN"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/txtNumFicha"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.github.florent37.shapeofview.shapes.ArcView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scroll">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:src="@drawable/hora"
+                        android:layout_height="40dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="18sp"
+                        android:text="Hora :"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:id="@+id/txtHour"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:src="@drawable/calendario"
+                        android:layout_height="40dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="10dp"
+                        android:text="Fecha :"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text=""
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:id="@+id/txtDate"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/alarma" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textOcurrencia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Lugar de Ocurrencia"
+                            android:textColor="#000"
+                            android:inputType="textCapSentences">
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18sp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Modalidad : "
+                            android:layout_height="wrap_content"/>
+
+                        <Spinner
+                            android:layout_width="40dp"
+                            android:text=""
+                            android:id="@+id/spinnerMod"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:id="@+id/spMod"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:text="Ubicación : "
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="Latitud"
+                                android:textSize="18sp"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:layout_width="80dp"
+                                android:text="-12.00000"
+                                android:id="@+id/txtLat"
+                                android:textSize="14sp"
+                                android:textAlignment="center"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="Longitud"
+                                android:textSize="18sp"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:layout_width="80dp"
+                                android:text="-69.00000"
+                                android:textSize="14sp"
+                                android:id="@+id/txtLon"
+                                android:textAlignment="center"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            />
+
+                        <Button
+                            android:layout_width="100dp"
+                            android:id="@+id/btnMapear"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rounded_button"
+                            android:backgroundTint="@drawable/btn_back_black"
+                            android:textColor="#fff"
+                            android:text="Cambiar ?"
+                            />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:padding="20dp"
+                        android:id="@+id/btnRegisterMapIncident"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@drawable/btn_back_black"
+                        android:textColor="#fff"
+                        android:text="Registrar Incidente"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:id="@+id/map_container">
+
+        <com.google.android.gms.maps.MapView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map_view" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="6dp"
+        app:fabSize="normal"
+        android:src="@drawable/ic_baseline_location_off_24"
+        app:backgroundTint="#f00"
+        app:elevation="6dp"
+        android:id="@+id/btnCloseMap"
+        android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

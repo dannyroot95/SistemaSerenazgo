@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="modalidad">
+        <item>-</item>
+        <item>Acc.Tránsito</item>
+        <item>Violencia Familiar</item>
+        <item>Hurto</item>
+        <item>Robo</item>
+        <item>Inspección de licencias</item>
+        <item>Asalto a mano armada</item>
+        <item>Microcomercialización de drogas</item>
+    </string-array>
+</resources>

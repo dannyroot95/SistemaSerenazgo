@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "481892388900",
+    "firebase_url": "https://serenazgo-b11fd.firebaseio.com",
+    "project_id": "serenazgo-b11fd",
+    "storage_bucket": "serenazgo-b11fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481892388900:android:0298aeca71cdd3d48548b1",
+        "android_client_info": {
+          "package_name": "com.optic.uberclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481892388900-r9pn5p1k42mld6tdg0i3a9u9le49vdp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.optic.uberclone",
+            "certificate_hash": "dbc57c75295a904a2594c7430a9b5bea44669fdf"
+          }
+        },
+        {
+          "client_id": "481892388900-1s6t4enjif35916vimn01biinl1hb0bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwho7K4dHsN8prkZ9QBKdkp0g5Ii4eOI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481892388900-1s6t4enjif35916vimn01biinl1hb0bh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

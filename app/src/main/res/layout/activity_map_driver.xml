@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.patrol.MapPatrolActivity">
+
+    <include layout="@layout/action_bar_toollbar" ></include>
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnRegisterIncidentOnPatrol"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:src="@drawable/ic_list_white"
+        android:layout_margin="16dp" />
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONECTARSE"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:drawablePadding="-46dp"
+        android:layout_margin="30dp"
+        android:drawableRight="@drawable/ic_location_on"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@drawable/btn_back_black"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
