@@ -142,8 +142,7 @@ public class MapPatrolActivity extends AppCompatActivity implements OnMapReadyCa
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String xtraOriginLat = String.valueOf(mCurrentLatLng.latitude);
-                if (!xtraOriginLat.equals("0.0")){
+                if (mCurrentLatLng != null){
                     Intent intent = new Intent(MapPatrolActivity.this , RegisterIncident.class);
                     intent.putExtra("origin_lat", mCurrentLatLng.latitude);
                     intent.putExtra("origin_lng", mCurrentLatLng.longitude);

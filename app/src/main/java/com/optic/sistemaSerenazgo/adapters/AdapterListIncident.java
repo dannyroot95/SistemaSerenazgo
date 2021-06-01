@@ -57,10 +57,22 @@ public class AdapterListIncident extends RecyclerView.Adapter<AdapterListInciden
                 holder.imageView.setImageResource(R.drawable.hurto);
                 break;
             case "Asalto a mano armada":
-                holder.imageView.setImageResource(R.drawable.robo);
+                holder.imageView.setImageResource(R.drawable.asalto);
                 break;
             case "Acc.Tránsito":
                 holder.imageView.setImageResource(R.drawable.car_accident);
+                break;
+            case "Inspección de licencias":
+                holder.imageView.setImageResource(R.drawable.licencia);
+                break;
+            case "Robo":
+                holder.imageView.setImageResource(R.drawable.robo);
+                break;
+            case "Microcomercialización de drogas":
+                holder.imageView.setImageResource(R.drawable.droga);
+                break;
+            case "Violencia Familiar":
+                holder.imageView.setImageResource(R.drawable.violencia);
                 break;
             default:
                 holder.imageView.setImageResource(R.drawable.alarma);

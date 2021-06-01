@@ -147,9 +147,7 @@ public class MapSereneActivity extends AppCompatActivity implements OnMapReadyCa
             @Override
             public void onClick(View view) {
                 disable();
-                String xtraOriginLat = String.valueOf(mOriginLatLng.latitude);
-                String xtraOriginLng = String.valueOf(mOriginLatLng.longitude);
-                if (!xtraOriginLat.equals("0.0") && !xtraOriginLng.equals("0.0")){
+                if (mOriginLatLng != null){
                     Intent intent = new Intent(MapSereneActivity.this , RegisterIncident.class);
                     intent.putExtra("origin_lat", mOriginLatLng.latitude);
                     intent.putExtra("origin_lng", mOriginLatLng.longitude);
