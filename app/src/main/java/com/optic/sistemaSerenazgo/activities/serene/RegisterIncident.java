@@ -548,6 +548,7 @@ public class RegisterIncident extends AppCompatActivity implements OnMapReadyCal
                         Map<String, Object> map3 = new HashMap<>();
                         map3.put("lat",la);
                         map3.put("lng",lo);
+                        map3.put("timestamp",timestamp);
                         map3.put("fecha",fecha);
                         mDatabase.child("heatMap").push().setValue(map3).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
