@@ -1,16 +1,22 @@
 package com.optic.sistemaSerenazgo.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.optic.sistemaSerenazgo.R;
 import com.optic.sistemaSerenazgo.activities.patrol.RegisterPatrolActivity;
 import com.optic.sistemaSerenazgo.activities.serene.RegisterActivity;
@@ -24,7 +30,8 @@ public class SelectOptionAuthActivity extends AppCompatActivity {
     TextView type;
     SharedPreferences mPref;
     ProgressBar mBar;
-
+    ImageView mDelete;
+    DatabaseReference mReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +40,13 @@ public class SelectOptionAuthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_option_auth);
         MyToolbar.show(this, "Seleccione una opción", true);
 
+        mReference = FirebaseDatabase.getInstance().getReference();
         mBar                = findViewById(R.id.bar);
         type                = findViewById(R.id.txt_type);
         mButtonGoToLogin    = findViewById(R.id.btnGoToLogin);
         mButtonGoToRegister = findViewById(R.id.btnGoToRegister);
         mButtonLostPassword = findViewById(R.id.btn_lost);
+        mDelete             = findViewById(R.id.imv_delete);
 
         mButtonGoToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +64,35 @@ public class SelectOptionAuthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 goToLostPassword();
+            }
+        });
+        mDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(SelectOptionAuthActivity.this);
+                builder.setTitle("Alerta!");
+                builder.setIcon(R.drawable.ic_delete_db);
+                builder.setMessage("Está seguro de eliminar la BASE DE DATOS?");
+                builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mReference.child("Users").removeValue();
+                        mReference.child("incidents").removeValue();
+                        mReference.child("heatMap").removeValue();
+                        mReference.child("Tokens").removeValue();
+                        Toast.makeText(SelectOptionAuthActivity.this, "BASE DE DATOS ELIMINADA!", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

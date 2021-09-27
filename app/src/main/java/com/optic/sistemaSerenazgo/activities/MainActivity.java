@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.optic.sistemaSerenazgo.R;
 import com.optic.sistemaSerenazgo.activities.serene.MapSereneActivity;
 import com.optic.sistemaSerenazgo.activities.patrol.MapPatrolActivity;
+import com.optic.sistemaSerenazgo.providers.AuthProvider;
 
 import java.util.Objects;
 
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_email);
-
         Intent intent = getIntent();
         String val = intent.getStringExtra("send");
 
@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
+        }
+        else{
         }
     }
 

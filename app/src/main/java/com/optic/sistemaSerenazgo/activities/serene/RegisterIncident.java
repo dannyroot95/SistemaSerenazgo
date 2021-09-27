@@ -235,7 +235,7 @@ public class RegisterIncident extends AppCompatActivity implements OnMapReadyCal
         mapView = findViewById(R.id.map_view);
         mapView.onCreate(mapViewBundle);
         mapView.getMapAsync(this);
-
+        getName();
     }
 
     public void hideSoftKeyboard() {
@@ -431,7 +431,6 @@ public class RegisterIncident extends AppCompatActivity implements OnMapReadyCal
                         int newNumPedido = numToString + 1;
                         String stNewNumPedido = String.valueOf(newNumPedido);
                         textFicha.setText(stNewNumPedido);
-                        getName();
                     }
                     else{
                         textFicha.setText("0");

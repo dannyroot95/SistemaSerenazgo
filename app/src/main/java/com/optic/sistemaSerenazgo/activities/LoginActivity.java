@@ -17,11 +17,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.optic.sistemaSerenazgo.R;
 import com.optic.sistemaSerenazgo.activities.serene.MapSereneActivity;
 import com.optic.sistemaSerenazgo.activities.patrol.MapPatrolActivity;
+import com.optic.sistemaSerenazgo.providers.AuthProvider;
 
 import dmax.dialog.SpotsDialog;
 import es.dmoral.toasty.Toasty;
@@ -35,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     ProgressDialog mDialog;
+    AuthProvider mAuthProvider;
 
     SharedPreferences mPref;
 
@@ -51,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDialog = new ProgressDialog(this);
+        mAuthProvider = new AuthProvider();
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,17 +85,34 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            String user = mPref.getString("user", "");
-                            if (user.equals("client")) {
-                                Intent intent = new Intent(LoginActivity.this, MapSereneActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            }
-                            else {
-                                Intent intent = new Intent(LoginActivity.this, MapPatrolActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            }
+                            mDatabase.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()){
+                                        String user = mPref.getString("user", "");
+                                        if (user.equals("client")) {
+                                            Intent intent = new Intent(LoginActivity.this, MapSereneActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            startActivity(intent);
+                                        }
+                                        else {
+                                            Intent intent = new Intent(LoginActivity.this, MapPatrolActivity.class);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                    else{
+                                        mAuthProvider.logout();
+                                        Toast.makeText(LoginActivity.this, "Este usuario no existe!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
                         }
                         else {
                             Toasty.error(LoginActivity.this, "La contraseña o el password son incorrectos", Toast.LENGTH_SHORT).show();

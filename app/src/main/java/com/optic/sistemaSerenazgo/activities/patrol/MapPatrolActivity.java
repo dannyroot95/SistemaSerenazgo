@@ -39,11 +39,22 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.optic.sistemaSerenazgo.R;
+import com.optic.sistemaSerenazgo.activities.LoginActivity;
 import com.optic.sistemaSerenazgo.activities.MainActivity;
+import com.optic.sistemaSerenazgo.activities.SelectOptionAuthActivity;
 import com.optic.sistemaSerenazgo.activities.serene.IncidentList;
+import com.optic.sistemaSerenazgo.activities.serene.MapSereneActivity;
 import com.optic.sistemaSerenazgo.activities.serene.RegisterIncident;
 import com.optic.sistemaSerenazgo.includes.MyToolbar;
 import com.optic.sistemaSerenazgo.providers.AuthProvider;
@@ -158,6 +169,7 @@ public class MapPatrolActivity extends AppCompatActivity implements OnMapReadyCa
 
         gpsActived();
         generateToken();
+        verifyIfUserWasDelete();
         //isDriverWorking();
     }
 
@@ -377,6 +389,20 @@ public class MapPatrolActivity extends AppCompatActivity implements OnMapReadyCa
         mTokenProvider.create(mAuthProvider.getId());
     }
 
+    private void verifyIfUserWasDelete(){
+        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists()){
+                    logout();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
+    }
     //INICIALIZAR UBICACION AL CERRAR Y ABRIR APP
     @Override
     protected void onStart() {

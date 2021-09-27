@@ -43,12 +43,22 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.optic.sistemaSerenazgo.R;
 import com.optic.sistemaSerenazgo.activities.MainActivity;
+import com.optic.sistemaSerenazgo.activities.SelectOptionAuthActivity;
+import com.optic.sistemaSerenazgo.activities.patrol.MapPatrolActivity;
 import com.optic.sistemaSerenazgo.includes.MyToolbar;
 import com.optic.sistemaSerenazgo.providers.AuthProvider;
 import com.optic.sistemaSerenazgo.providers.GeofireProvider;
@@ -167,8 +177,8 @@ public class MapSereneActivity extends AppCompatActivity implements OnMapReadyCa
                 requestDriver();
             }
         });
-
         generateToken();
+        verifyIfUserWasDelete();
     }
 
     private void disable(){
@@ -430,6 +440,21 @@ public class MapSereneActivity extends AppCompatActivity implements OnMapReadyCa
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void verifyIfUserWasDelete(){
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists()){
+                    logout();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
+    }
+
 
     void logout() {
         mAuthProvider.logout();
